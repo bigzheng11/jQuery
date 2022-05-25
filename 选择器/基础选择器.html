@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>基础选择器</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background: wheat;
+      }
+    </style>
+    <script type="text/javascript" src="../jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      function btn1() {
+        //   id选择器
+        var idObj = $("#one");
+        idObj.css("background", "red");
+      }
+      function btn2() {
+        //   class选择器
+        var classObj = $(".two");
+        classObj.css("background", "yellow");
+      }
+      function btn3() {
+        var biaoqian = $("span");
+        biaoqian.css("background", "black");
+      }
+      function btn4() {
+        var allSelect = $("*");
+        allSelect.css("background", "green");
+      }
+      function btn5() {
+        var amanySelect = $("#one,.two,span");
+        amanySelect.css("background", "aqua");
+      }
+    </script>
+  </head>
+  <!-- 
+    选择器:就是一个字符串
+    1.id选择器:  $("#dom对象的id值")
+    2.class选择器:  $(".dom对象的class值")
+    3.标签选择器:  $("标签的名称")
+    4.所有选择器:  $("*")  选择当前页面所有dom
+    5.组合选择器:  $("#id,.class,标签")
+ -->
+  <body>
+    <div id="one">id为one的div</div>
+    <hr />
+    <div class="two">class为two的div</div>
+    <hr />
+    <span>只有标签的span</span>
+    <span>只有标签的span1</span>
+    <span>只有标签的span2</span>
+    <!-- 
+        jQuery的操作是操作数组中的全部成员
+     -->
+    <hr />
+    <button onclick="btn1()">获取id是one的div</button>
+    <button onclick="btn2()">获取class是two的div</button>
+    <button onclick="btn3()">标签为span</button>
+    <button onclick="btn4()">所有选择器</button>
+    <button onclick="btn5()">组合选择器</button>
+  </body>
+</html>

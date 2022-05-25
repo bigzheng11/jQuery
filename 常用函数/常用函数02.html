@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数</title>
+    <script type="text/javascript" src="../jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      // 在dom对象创建好之后,绑定事件
+      $(function () {
+        $("#btn1").click(function () {
+          $("select").remove();
+        });
+
+        $("#btn2").click(function () {
+          $("select").empty();
+        });
+
+        $("#btn3").click(function () {
+          $("#father").append("<button>我是新增加的按钮</button>");
+        });
+
+        $("#btn4").click(function () {
+          //使用html()函数,获取数组中第一个dom对象的文本值(innerHTML)
+          console.log($("span").html());
+        });
+
+        $("#btn5").click(function () {
+          $("span").html("我是新的<b>数据</b>");
+        });
+      });
+    </script>
+    <style>
+      div {
+        background-color: gray;
+      }
+      img {
+        width: 30%;
+        height: 30%;
+      }
+    </style>
+  </head>
+  <!-- 
+    1.remove
+        --将数组中所有DOM对象及其子对象一并删除(删除所有)
+        $(选择器).remove()
+    2.empty
+        --将数组中所有DOM对象的子对象删除(删除子)
+        $(选择器).empty()
+    3.append
+        --为数组中所有dom添加子对象
+        $(选择器).append("<div>我动态添加的div</div>")
+    4.html
+        --设置或返回被选中的元素内容(innerHTML)
+        $(选择器).html():无参数调用方法，获取DOM数组第一个匹元素的内容。
+        $(选择器).html(值):有参数调用，用于设置DOM数组中所有元素的内容。 -->
+  <body>
+    <select>
+      <option value="老虎">老虎</option>
+      <option value="狮子">狮子</option>
+      <option value="豹子">豹子</option>
+    </select>
+    <!-- select是父标签,option是子标签 -->
+    <br />
+    <br />
+    <select>
+      <option value="亚洲">亚洲</option>
+      <option value="美洲">美洲</option>
+      <option value="欧洲">欧洲</option>
+    </select>
+    <br />
+    <br />
+    <div id="father">我是一个father的div</div>
+    <br />
+    <br />
+    <span>我是mysql <b>数据库</b></span>
+    <span>我是jdbc</span>
+    <hr />
+    <input type="button" id="btn1" value="使用remove删除父和子对象" />
+    <br />
+    <br />
+    <input type="button" id="btn2" value="使用empty删除子dom对象" />
+    <br />
+    <br />
+    <input type="button" id="btn3" value="增加一个子dom对象" />
+    <br />
+    <br />
+    <input type="button" id="btn4" value="获取第一个dom的文本值" /><br />
+    <input type="button" id="btn5" value="设置span的所有dom的值" />
+
+    <br />
+  </body>
+</html>

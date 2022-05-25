@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery基础思路</title>
+  </head>
+  <body>
+    <input type="text" id="ipt1" value="我是input000" />
+    <button id="btn" onclick="func1()">dianji</button>
+    <!-- 自定义方法,获取js中的对象,并设置$为一个函数名-->
+    <script>
+      //   var btn = document.getElementById("btn");
+      function $(domId) {
+        var obj = document.getElementById(domId);
+        return obj;
+      }
+      function func1() {
+        var obj = $("ipt1");
+        alert(obj.value);
+      }
+      
+    </script>
+  </body>
+</html>

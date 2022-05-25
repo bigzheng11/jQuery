@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="../jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $("#btn1").click(function () {
+          //使用append增加对象
+          $("#mydiv").append("<button id='newbtn'>我是新增的按钮</button>");
+          $("#newbtn").on("click", function () {
+            console.log("新创建的按钮被点击了");
+          });
+        });
+      });
+    </script>
+  </head>
+  <!-- 
+      事件绑定:
+      $(选择器).on(事件名称,函数)
+   -->
+  <body>
+    <div id="mydiv">我是一个div,需要增加一个button</div>
+    <hr />
+    <button id="btn1">创建一个button,绑定一个click</button>
+    <br />
+  </body>
+</html>

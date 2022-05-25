@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数</title>
+    <script type="text/javascript" src="../jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        // 循环普通数组
+        var arr = [1, 2, 3, 4, 5, 6, 7];
+        $.each(arr, function (index, element) {
+          console.log("============"); //出现7次
+          console.log("each方法,下标:" + index + "====循环元素" + element);
+        });
+
+        //循环json数据
+        var json01 = { name: "bigzheng", age: 20 };
+        $.each(json01, function (i, n) {
+          console.log("i是key:" + i + ",n是value:" + n);
+        });
+
+        //循环dom数组
+        $.each($("input"), function (i, n) {
+          // n是数组中的dom对象
+          console.log("i:" + i + ",n:" + n + ",n的值为:" + n.value);
+        });
+        //语法2:
+        $("input").each(function (i, n) {
+          console.log("语法2-->i:" + i + ",n:" + n + ",n的值为:" + n.value);
+        });
+      });
+    </script>
+    <style></style>
+  </head>
+  <!-- 
+      1.each
+        --each是对数组,json 和 dom 数组等的遍历,对每个元素调用一次函数。
+        语法1:$.each(要遍历的对象,function(index,element){处理程序})
+        语法2:jQuery对象.each( function( index, element ) {处理程序})index:数组的下标
+        element:数组的对象
+
+        $:相当于java中的一个类名
+        each:就是类中的静态方法
+        类名.方法    $.each
+
+    -->
+  <body>
+    <input type="text" value="dom元素1" />
+    <input type="text" value="dom元素2" />
+    <input type="text" value="dom元素3" />
+  </body>
+</html>

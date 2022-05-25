@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="../jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        var city = "徐州";
+        $("button").click(function () {
+          $.ajax({
+            async: true,
+            error: function () {
+              console.log("请求出错");
+            },
+            success: function (data) {
+              // testJson = eval("(" + data + ")");
+              console.log(data);
+              console.log(data[0]);
+              console.log(data.data);
+            },
+            url: "http://wthrcdn.etouch.cn/weather_mini?city=" + city,
+            type: "get",
+            dataType: "json",
+          });
+        });
+      });
+    </script>
+    <style>
+      div {
+        width: 500px;
+        height: 400px;
+        border: 1px red solid;
+      }
+    </style>
+  </head>
+  <!-- 
+      jquery中简化了ajax的请求处理
+      1.$.ajax()  -jquery中实现ajax的核心函数
+      2.$.post()  -使用post方式发送ajax请求
+      3.$.get()   -使用get方式发送ajax请求
+
+      $.get() 和 $.post() 在内部都调用的$.ajax()
+   -->
+  <!-- 
+        $.ajax({async:true,
+            contentType:"application/json",
+            data:{name:"list",age:20},
+            dataType:"json",
+            error:function(){请求错误时,执行的函数},
+            success:function(data){data是返回的数据,是jq处理过后的数据},
+            url:"https://www.baidu.com",
+            type:"get"
+        })
+
+       1) async:是一个boolean类型的值，默认是true ,表示异步请求。可以不写async这个配置项
+       2) contentType:一个字符串，表示从浏览器发送服务器的参数的类型。可以不写。
+        例如你想表示请求的参数是json格式的，可以写application/json
+       3) data:可以是字符串，数组，json，表示请求的参数和参数值
+        常用的是json格式的数据
+       4)dataType:表示期望从服务器端返回的数据格式，可选的有:xml,html,text,json
+        当我们使用$.ajax()发送请求时，会把dataType的值发送给服务器，那我们的servlet能够读取到dataType的值，
+        就知道你的浏览器需要的是json或者xml的数据，那么服务器就可以返回你需要的数据格式。
+       5)error:当请求错误时,执行的函数
+       6)success:请求成功了,从服务端返回了数据,后会执行success当中的函数
+       7)url:访问的是谁
+       8)type:请求的方式,get/post,不区分大小写
+    -->
+  <body>
+    <button>点击发送AJAX请求</button>
+    <div></div>
+  </body>
+</html>

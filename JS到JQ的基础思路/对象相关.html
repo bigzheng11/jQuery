@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象相关</title>
+    <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
+    <script>
+      // →→→→→→→→→→→→→→→dom对象 转换为 jQuery对象←←←←←←←←←←←←←←←←←←←
+      function btnClick() {
+        var domObj = document.getElementById("btn");
+        console.log("使用dom对象的方法:" + domObj.value);
+        console.log("↑↑↑此时为dom对象↑↑↑");
+        var $jqObj = $(domObj);
+        console.log("使用jQuery对象的方法:" + $jqObj.val());
+        console.log("↑↑↑已经转换为jQuery对象↑↑↑");
+        console.log(
+          "------------------------------------------------------------"
+        );
+      }
+      //转换为jquery对象,为了使用jQuery中的函数(val()是jQuery中的方法)
+      // →→→→→→→→→→→→→→→→→→→→→→→→→→→→→←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
+      // →→→→→→→→→→→→→→→→→→→→→jQuery对象 转换为 dom对象←←←←←←←←←←←←←←←←←←←
+      //  1.  var domObj = $jqObj[0];
+      //  2.  var domObj = $jqObj.get(0);
+      // →→→→→→→→→→→→→→→→→→→→→→→→→→→→→←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
+    </script>
+  </head>
+  <body>
+    <input type="button" value="1.点击dom->jq" id="btn" onclick="btnClick()" />
+  </body>
+</html>
+<!-- 
+    jQuery:
+1. jQuery是js库,库:相当于java的工具类，库是存放东西的，jquery是存 放js代码的地方，放的用js代码写的function
+2. dom对象和jquery对象
+    dom对象，使用javascript的语法创建的对象叫做dom对象，也就是js对象。
+        var obj=document.getElementById("txt1"); obj是dom对象，也叫做js对象
+        obj.value;
+    jquery对象:使用jquery语法表示对象叫做jquery对象，注意: jquery表示的对象都是数组。
+    例如var jobj = $("#txt1")，jobj就是使用jquery语法表示的对象。也就是jquery对象。它是一个数组。
+        现在数组中就一个值。
+    dom对象可以和jquery对象相互的转换。
+        dom对象可以转为jquery,语法: $(dom对象)
+    jquery对象也可以转为dom对象，语法: 从数组中获取第一个对象，第一个对象就是dom对象，使用[0]或者get(0) .
+    为什么要进行dom和jquery的转换:
+        目的是要使用对象的方法，或者方法。当你的dom对象时，可以使用dom对象的属性或者方法，
+        如果你要想使用jquery提供的函数，必须是jquery对象才可以。
+ -->

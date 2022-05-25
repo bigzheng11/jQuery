@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      /*
+        1.$为jQuery中的 函数  ,document为参数
+            -作用:把document对象变成 jquery函数库可以使用的对象
+        2.ready:是jQuery中的函数,是准备的意思,当页面dom加载成功后,会执行ready函数的内容
+            -相当于js中的onload
+        */
+      // →→→→→→→→→→标准写法←←←←←←←←←←←←←
+      $(document).ready(function () {
+        console.log("标准写法");
+      });
+      // →→→→→→→→→→简写←←←←←←←←←←←←←
+      $(function () {
+        console.log("简写");
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

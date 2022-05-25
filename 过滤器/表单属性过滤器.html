@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>过滤器</title>
+    <script type="text/javascript" src="../jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      // $(function(){})当页面dom加载成功后,会执行其中函数
+      $(function () {
+        $("#btn1").click(function () {
+          //获取所有可用的text
+          var obj = $(":text:enabled"); //txt1 txt3
+          obj.val("hello");
+          // 设置其value值为hello
+        });
+
+        $("#btn2").click(function () {
+          var obj = $(":checkbox:checked");
+          for (let i = 0; i < obj.length; i++) {
+            console.log(obj[i].value);
+          }
+        });
+        $("#btn3").click(function () {
+          var obj = $("select>option:selected");
+          for (let i = 0; i < obj.length; i++) {
+            console.log(obj[i].value);
+          }
+        });
+      });
+    </script>
+    <style>
+      div {
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="txt1" value="text1" /><br />
+    <input type="text" id="txt2" value="text2" disabled="true" /><br />
+    <input type="text" id="txt3" value="text3" /><br />
+    <input type="text" id="txt4" value="text4" disabled /><br />
+    <br />
+    <input type="checkbox" value="游泳" />游泳<br />
+    <input type="checkbox" value="健身" checked />健身<br />
+    <input type="checkbox" value="电子游戏" checked />电子游戏<br />
+    <br />
+    <select name="" id="yuyuan">
+      <option value="java">java语言</option>
+      <option value="go" selected>go语言</option>
+      <option value="python">python语言</option>
+    </select>
+    <br />
+    <br />
+    <hr />
+    <input type="button" value="设置可以的text的value是hello" id="btn1" />&nbsp;
+    <button id="btn2">显示被选中的复选框的值</button>&nbsp;
+    <button id="btn3">显示下拉列表中的值</button>
+  </body>
+</html>
+<!--表单属性过滤器:
+    $(":text:enabled")  --选择可用的文本框
+    $(":text:disabled")  --选择不可用的文本框
+    $(":checkbox:checked")  --所有选中的复选框
+    选择器>option:selected  --选择指定下拉列表的被选中的元素
+   -->

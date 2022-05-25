@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数</title>
+    <script type="text/javascript" src="../jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      // 在dom对象创建好之后,绑定事件
+      $(function () {
+        $("#btn1").click(function () {
+          var text = $(":text").val();
+          console.log(text);
+        });
+
+        $("#btn2").click(function () {
+          $(":text").val("三国演义");
+        });
+
+        $("#btn3").click(function () {
+          console.log($("div").text());
+          // 获取所有div的文本值,连接成一个字符串
+        });
+
+        $("#btn4").click(function () {
+          $("div").text("新的文本值");
+        });
+
+        $("#btn5").click(function () {
+          console.log($("img").attr("src"));
+        });
+        $("#btn6").click(function () {
+          $("img").attr(
+            "src",
+            "C:/Users/14469/Desktop/正是因为你爱的人住在这里.jpg"
+          );
+        });
+      });
+    </script>
+    <style>
+      div {
+        background-color: gray;
+      }
+      img {
+        width: 30%;
+        height: 30%;
+      }
+    </style>
+  </head>
+  <!-- 
+    1.val
+        --操作数组中DOM对象的value属性
+        $(选择器).val() :无参数调用形式，读取数组中第一个DOM对象的value属性值
+        $(选择器).val(值):有参形式调用;对数组中所有DOM对象的value属性值进行统一赋值
+    2.text
+        --操作数组中所有DOM对象的【文字显示内容属性】
+        $(选择器).text():无参数调用，读取数组中所有DOM对象的文字显示内容，将得到内容拼接为一个字符串返回
+        $(选择器).text(值):有参数方式，对数组中所有DOM对象的文字显示内容进行统一赋值
+    3.attr
+        --对val, text之外的其他属性操作
+        $(选择器).attr(“属性名”):获取 DOM数组第一个对象的属性值
+        $(选择器).attr(“属性名”，“值”):对数组中所有DOM对象的属性设为新值
+
+   -->
+  <body>
+    <input type="text" value="刘备" /><br />
+    <input type="text" value="关羽" /><br />
+    <input type="text" value="张飞" /><br />
+    <br />
+    <div>1.我是第一个div</div>
+    <div>2.我是第二个div</div>
+    <div>3.我是第三个div</div>
+    <br />
+    <img src="C:\Users\14469\Desktop\感受心中所爱.jpg" id="img1" />
+    <br />
+    <button id="btn1">val-获取第一个文本框的值</button>&nbsp;&nbsp;&nbsp;
+    <button id="btn2">val-设置所有文本框的value值</button><br />
+    <br />
+    <br />
+    <button id="btn3">text-获取所有div的文本值</button>&nbsp;&nbsp;&nbsp;
+    <button id="btn4">text-设置div的文本值</button><br />
+    <br />
+    <br />
+    <button id="btn5">attr-获取img的src属性值</button>&nbsp;&nbsp;&nbsp;
+    <button id="btn6">attr-修改img的src属性值</button>&nbsp;&nbsp;&nbsp;
+  </body>
+</html>
